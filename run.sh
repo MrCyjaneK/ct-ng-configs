@@ -35,6 +35,7 @@ then
 fi
 
 put_new_config CT_BINUTILS_EXTRA_CONFIG_ARRAY '"--with-system-zlib"'
+put_new_config CT_CC_GCC_SYSTEM_ZLIB y
 
 put_new_config CT_GDB_CROSS n
 put_new_config CT_GDB n
