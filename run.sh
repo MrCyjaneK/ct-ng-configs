@@ -40,29 +40,15 @@ put_new_config CT_PREFIX_DIR_RO n
 put_new_config CT_PREFIX $PREFIX
 put_new_config CT_LOG_LEVEL_MAX '"ALL"'
 
-put_new_config CT_EXPERIMENTAL=y
-put_new_config CT_FORBID_DOWNLOAD=y
+put_new_config CT_EXPERIMENTAL y
+put_new_config CT_FORBID_DOWNLOAD y
+put_new_config CT_WANTS_STATIC_LINK n
+put_new_config CT_WANTS_STATIC_LINK_CXX n
 
 unset LD_LIBRARY_PATH
-ct-ng build
+unset LIBRARY_PATH
+unset CFLAGS
+unset CC
+unset CXX
 
-
-exit 0
-"*:{*-linux-gnu,*-linux-musl,*-w64-mingw32}:echo '' >> .config",
-"*:{*-linux-gnu,*-linux-musl,*-w64-mingw32}:echo 'CT_CC_LANG_CXX=y' >> .config",
-"*:none:echo 'CT_CC_LANG_FORTRAN=y' >> .config",
-"*:none:echo 'CT_CC_LANG_D=y' >> .config",
-"*:none:echo 'CT_CC_LANG_OBJC=y' >> .config",
-"*:none:echo 'CT_CC_LANG_OBJCXX=y' >> .config",
-"*:none:echo 'CT_CC_LANG_GOLANG=y' >> .config",
-"*:{*-linux-gnu,*-linux-musl,*-w64-mingw32}:echo 'CT_BINUTILS_EXTRA_CONFIG_ARRAY=\"--with-system-zlib\"' >> .config",
-"*:{*-linux-gnu,*-linux-musl,*-w64-mingw32}:echo 'CT_CC_GCC_SYSTEM_ZLIB=y' >> .config",
-"*:{*-linux-gnu,*-linux-musl,*-w64-mingw32}:echo 'CT_DEBUG_CT_SAVE_STEPS=y' >> .config",
-"*:{*-linux-gnu,*-linux-musl,*-w64-mingw32}:sed -i.bak 's/CT_GDB_CROSS=y/CT_GDB_CROSS=n/g' .config",
-"*:{*-linux-gnu,*-linux-musl,*-w64-mingw32}:sed -i.bak 's/CT_GDB_GDBSERVER=y/CT_GDB_GDBSERVER=n/g' .config",
-"*:{*-linux-gnu,*-linux-musl,*-w64-mingw32}:echo 'CT_GDB=n' >> .config",
-"*:{*-linux-gnu,*-linux-musl,*-w64-mingw32}:echo 'CT_GDB_NATIVE=n' >> .config",
-"*:{*-linux-gnu,*-linux-musl,*-w64-mingw32}:echo 'CT_PREFIX_DIR_RO=n' >> .config",
-"*:{*-linux-gnu,*-linux-musl,*-w64-mingw32}:echo 'CT_MULTILIB=y' >> .config",
-"*:{*-linux-gnu,*-linux-musl,*-w64-mingw32}:ln -s $TOOL_TARGET_ALT-objcopy $PREFIX/native/bin/objcopy",
-"*:{*-linux-gnu,*-linux-musl,*-w64-mingw32}:ln -s $TOOL_TARGET_ALT-readelf $PREFIX/native/bin/readelf",
+exec ct-ng build
