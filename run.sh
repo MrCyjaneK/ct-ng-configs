@@ -33,6 +33,9 @@ then
     put_new_config CT_MULTILIB n
     put_new_config CT_OMIT_TARGET_VENDOR y
 fi
+
+put_new_config CT_BINUTILS_EXTRA_CONFIG_ARRAY '"--with-system-zlib"'
+
 put_new_config CT_GDB_CROSS n
 put_new_config CT_GDB n
 put_new_config CT_GDB_NATIVE n
