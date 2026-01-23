@@ -19,7 +19,7 @@ fi
 cp $WDIR/../platforms/$BUILD_TUPLE/.config .config
 
 function put_new_config {
-    cat .config | grep -v "$1"= > .config.new
+    (cat .config | grep -v "$1"= || true) > .config.new
     mv .config.new .config
     echo "$1"="$2" >> .config
     return 0
@@ -30,13 +30,13 @@ put_new_config CT_CC_LANG_CXX y
 if [[ $BUILD_TUPLE == *-linux-* ]];
 then
     put_new_config CT_CC_LANG_GOLANG y
+    put_new_config CT_MULTILIB n
+    put_new_config CT_OMIT_TARGET_VENDOR y
 fi
-put_new_config CT_OMIT_TARGET_VENDOR y
 put_new_config CT_GDB_CROSS n
 put_new_config CT_GDB n
 put_new_config CT_GDB_NATIVE n
 put_new_config CT_PREFIX_DIR_RO n
-put_new_config CT_MULTILIB n
 put_new_config CT_PREFIX $PREFIX
 put_new_config CT_LOG_LEVEL_MAX '"ALL"'
 
