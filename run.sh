@@ -29,7 +29,6 @@ put_new_config CT_CC_LANG_CXX y
 
 if [[ $BUILD_TUPLE == *-linux-* ]];
 then
-    put_new_config CT_CC_LANG_GOLANG y
     put_new_config CT_MULTILIB n
     put_new_config CT_OMIT_TARGET_VENDOR y
 fi
@@ -43,6 +42,7 @@ put_new_config CT_GDB_NATIVE n
 put_new_config CT_PREFIX_DIR_RO n
 put_new_config CT_PREFIX $PREFIX
 put_new_config CT_LOG_LEVEL_MAX '"ALL"'
+put_new_config CT_CC_LANG_GOLANG n
 
 put_new_config CT_EXPERIMENTAL y
 put_new_config CT_FORBID_DOWNLOAD y
