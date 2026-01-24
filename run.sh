@@ -48,6 +48,7 @@ put_new_config CT_EXPERIMENTAL y
 put_new_config CT_FORBID_DOWNLOAD y
 put_new_config CT_WANTS_STATIC_LINK n
 put_new_config CT_WANTS_STATIC_LINK_CXX n
+put_new_config CT_STATIC_TOOLCHAIN n
 
 unset LD_LIBRARY_PATH
 unset LIBRARY_PATH
