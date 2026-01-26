@@ -39,6 +39,8 @@ put_new_config CT_CC_GCC_SYSTEM_ZLIB y
 put_new_config CT_GDB_CROSS n
 put_new_config CT_GDB n
 put_new_config CT_GDB_NATIVE n
+put_new_config CT_GDB_GDBSERVER n
+
 put_new_config CT_PREFIX_DIR_RO n
 put_new_config CT_PREFIX $PREFIX
 put_new_config CT_LOG_LEVEL_MAX '"ALL"'
