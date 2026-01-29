@@ -33,6 +33,12 @@ then
     put_new_config CT_OMIT_TARGET_VENDOR y
 fi
 
+if [[ $BUILD_TUPLE == *-mingw32* ]];
+then
+    put_new_config CT_MINGW_DEFAULT_MSVCRT_DEFAULT y
+    put_new_config CT_MINGW_DEFAULT_MSVCRT_UCRT y
+fi
+
 put_new_config CT_BINUTILS_EXTRA_CONFIG_ARRAY '"--with-system-zlib"'
 put_new_config CT_CC_GCC_SYSTEM_ZLIB y
 
