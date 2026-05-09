@@ -48,7 +48,8 @@ put_new_config CT_GDB_NATIVE n
 put_new_config CT_GDB_GDBSERVER n
 
 put_new_config CT_PREFIX_DIR_RO n
-put_new_config CT_PREFIX $PREFIX
+put_new_config CT_PREFIX $NATIVEPREFIX
+put_new_config CT_SYSROOT_DIR $PREFIX/sysroot
 put_new_config CT_LOG_LEVEL_MAX '"ALL"'
 put_new_config CT_CC_LANG_GOLANG n
 
